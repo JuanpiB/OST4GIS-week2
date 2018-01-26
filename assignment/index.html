@@ -57,16 +57,38 @@
       Start code
 
       ===================== */
+var jsonToCsv = function(json) { console.log(json); };
 
-      var jsonToCsv = function(json) { console.log(json); };
+
+var arrayLongitude=[];
+var arrayLatitude=[];
+var arrayName=[];
+
+for (i=0; i < healthCenters.length; i++){
+  arrayLongitude[i]=healthCenters[i].LNG;
+  arrayLatitude[i]=healthCenters[i].LAT;
+  arrayName[i]=healthCenters[i].NAME;
+}
+
+//TEST This//
+
+jsonToCsv(arrayLongitude)
+jsonToCsv(arrayLatitude)
+jsonToCsv(arrayName)
+
+var addMarkers = function(map) {
+  for(i=0; i<healthCenters.length;i++){
+    L.marker([healthcenters[i].LAT, healthcenters[i].LNG]).addTo(map);
+};
+
+
+
 
       jsonToCsv(health_centers);
 
-      var addMarkers = function(map) {
-        for(i=0; i<healthcenters.length;i++){
-          L.marker([healthcenters[i].LAT, healthcenters[i].LNG]).addTo(map);
-        }
-      };
+
+
+
 
 
       /* =====================
@@ -74,7 +96,6 @@
       End code
 
       ===================== */
-
 
       jsonToCsv(healthCenters);
       addMarkers(map);
